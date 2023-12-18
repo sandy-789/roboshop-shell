@@ -29,25 +29,25 @@ else
     echo "You are root user"
 fi # fi means reverse of if, indicating condition end
 
-dnf module disable nodejs -y
+dnf module disable nodejs -y &>> $LOGFILE
 
-VALIDATE $? "Disable nodejs" &>> $LOGFILE
+VALIDATE $? "Disable nodejs" 
 
-dnf module enable nodejs:18 -y
+dnf module enable nodejs:18 -y &>>$LOGFILE
 
-VALIDATE $? "Enable nodejs:18" &>>$LOGFILE
+VALIDATE $? "Enable nodejs:18" 
  
-dnf install nodejs -y
+dnf install nodejs -y &>>$LOGFILE
 
-VALIDATE $? "Installing node-js" &>>$LOGFILE
+VALIDATE $? "Installing node-js" 
 
-useradd roboshop
+useradd roboshop 
 
 VALIDATE $? "CReate roboshop user"
 
-mkdir /app
+mkdir /app &>>$LOGFILE
 
-VALIDATE $? "creating app directory" &>>$LOGFILE
+VALIDATE $? "creating app directory" 
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 
@@ -55,14 +55,14 @@ VALIDATE $? "download catalouge" &>>$LOGFILE
 
 cd /app 
 
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip &>>$LOGFILE
 
 
-VALIDATE $? "unzipping file" &>>$LOGFILE
+VALIDATE $? "unzipping file" 
 
-npm install 
+npm install &>>$LOGFILE
 
-VALIDATE $? "installing dependencies" &>>$LOGFILE
+VALIDATE $? "installing dependencies" 
 
 cp /c/users/sandeep_vadla/devops/repos/roboshop-shell/catalouge.service /etc/systemd/system/catalouge.service
 
@@ -80,7 +80,7 @@ systemctl start catalogue &>>$LOGFILE
 
 VALIDATE $? "starting catalouge" &>>$LOGFILE
 
-cp /c/users/sandeep_vadla/devops/repos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /users/sandeep_vadla/devops/repos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
 VALIDATE $? "Copying mongodb repo
 
