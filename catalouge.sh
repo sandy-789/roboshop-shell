@@ -71,19 +71,20 @@ VALIDATE $? "installing dependencies"
 
 cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 
-VALIDATE $? "Copying catalouge service file" &>>$LOGFILE
+VALIDATE $? "Copying catalouge service file" 
 
-systemctl daemon-reload
+systemctl daemon-reload &>>$LOGFILE
 
-VALIDATE $? "deamon reload" &>>$LOGFILE
 
-systemctl enable catalogue
+VALIDATE $? "deamon reload" 
 
-VALIDATE $? "enabling catalouge" &>>$LOGFILE
+systemctl enable catalogue  &>>$LOGFILE
+
+VALIDATE $? "enabling catalouge" 
 
 systemctl start catalogue &>>$LOGFILE
 
-VALIDATE $? "starting catalouge" &>>$LOGFILE
+VALIDATE $? "starting catalouge" 
 
 cp /users/sandeep_vadla/devops/repos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
