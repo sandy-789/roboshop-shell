@@ -69,7 +69,7 @@ npm install &>>$LOGFILE
 
 VALIDATE $? "installing dependencies" &>>$LOGFILE
 
-cp /tmp/catalouge.service /etc/systemd/system/catalogue.service
+cp /home/centos/roboshop-shell/catalouge.service /etc/systemd/system/catalogue.service &>>$LOGFILE
 
 VALIDATE $? "Copying catalouge service file" 
 
