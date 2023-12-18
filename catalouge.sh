@@ -63,13 +63,13 @@ cd /app
 unzip -o /tmp/catalogue.zip &>>$LOGFILE
 
 
-VALIDATE $? "unzipping file" 
+VALIDATE $? "unzipping file" &>>$LOGFILE
 
 npm install &>>$LOGFILE
 
-VALIDATE $? "installing dependencies" 
+VALIDATE $? "installing dependencies" &>>$LOGFILE
 
-cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service
+cp /tmp/catalouge.service /etc/systemd/system/catalogue.service
 
 VALIDATE $? "Copying catalouge service file" 
 
