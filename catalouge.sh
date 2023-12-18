@@ -88,7 +88,7 @@ VALIDATE $? "starting catalouge"
 
 cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
-VALIDATE $? "Copying mongodb repo
+VALIDATE $? "Copying mongodb repo"
 
 dnf install mongodb-org-shell -y
 
