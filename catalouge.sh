@@ -89,3 +89,4 @@ dnf install mongodb-org-shell -y
 mongo --host mongodb.prorb.online </app/schema/catalogue.js
 
 
+
