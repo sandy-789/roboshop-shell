@@ -56,7 +56,7 @@ VALIDATE $? "creating app directory"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 
-VALIDATE $? "download catalouge" &>>$LOGFILE
+VALIDATE $? "download catalogue" &>>$LOGFILE
 
 cd /app 
 
@@ -69,9 +69,9 @@ npm install &>>$LOGFILE
 
 VALIDATE $? "installing dependencies" &>>$LOGFILE
 
-cp /home/centos/roboshop-shell/catalouge.service /etc/systemd/system/catalogue.service &>>$LOGFILE
+cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>>$LOGFILE
 
-VALIDATE $? "Copying catalouge service file" 
+VALIDATE $? "Copying catalogue service file" 
 
 systemctl daemon-reload &>>$LOGFILE
 
@@ -80,11 +80,11 @@ VALIDATE $? "deamon reload"
 
 systemctl enable catalogue  &>>$LOGFILE
 
-VALIDATE $? "enabling catalouge" 
+VALIDATE $? "enabling catalogue" 
 
 systemctl start catalogue &>>$LOGFILE
 
-VALIDATE $? "starting catalouge" 
+VALIDATE $? "starting catalogue" 
 
 cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
