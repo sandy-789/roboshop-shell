@@ -8,6 +8,7 @@ N="\e[0m"
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
+MONGDB_HOST=mongodb.prorb.online
 
 echo "script stareted executing at $TIMESTAMP" &>> $LOGFILE
 
@@ -90,9 +91,12 @@ cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
 VALIDATE $? "Copying mongodb repo"
 
-dnf install mongodb-org-shell -y &>>$LOGFILE
+dnf install mongodb-org-shell -y &>> $LOGFILE
 
-mongo --host mongodb.prorb.online </app/schema/catalogue.js &>>$LOGFILE
+VALIDATE $? "Installing MongoDB client"
 
+mongo --host $MONGDB_HOST </app/schema/catalogue.js &>> $LOGFILE
+
+VALIDATE $? "Loading catalouge data into MongoDB"
 
 
