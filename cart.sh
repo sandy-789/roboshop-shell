@@ -39,7 +39,7 @@ VALIDATE $? "Enable nodejs:18"
  
 dnf install nodejs -y &>>$LOGFILE
 
-VALIDATE $? "Installing node-js" 
+VALIDATE $? "Installing Node-Js:18" 
 
 id roboshop #if roboshop user does not exist, then it is failure
 if [ $? -ne 0 ]
@@ -70,6 +70,8 @@ npm install &>>$LOGFILE
 VALIDATE $? "installing dependencies" &>>$LOGFILE
 
 cp /home/centos/roboshop-shell/cart.service /etc/systemd/system/cart.service
+
+VALIDATE $? "Copying cart service file"
 
 systemctl daemon-reload &>>$LOGFILE
 

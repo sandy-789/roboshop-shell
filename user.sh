@@ -72,6 +72,8 @@ VALIDATE $? "installing dependencies" &>>$LOGFILE
 
 cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service
 
+VAIDATE $? "Copying user service file"
+
 systemctl daemon-reload &>>$LOGFILE
 
 VALIDATE $? "deamon reload" 
