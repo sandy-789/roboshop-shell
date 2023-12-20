@@ -8,6 +8,7 @@ N="\e[0m"
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
+MONGDB_HOST=mongodb.prorb.online
 
 echo "script stareted executing at $TIMESTAMP" &>> $LOGFILE
 
@@ -72,7 +73,6 @@ VALIDATE $? "installing dependencies" &>>$LOGFILE
 cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service
 
 systemctl daemon-reload &>>$LOGFILE
-
 
 VALIDATE $? "deamon reload" 
 
