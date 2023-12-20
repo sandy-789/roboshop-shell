@@ -54,7 +54,7 @@ cd /usr/share/nginx/html
 
 VALIDATE $? "moving ngnix directory"
 
-unzip -o /tmp/web.zipVALIDATE $? "downloaded web app"
+unzip -o /tmp/web.zip
 
 VALIDATE $? "unzipping web"
 
