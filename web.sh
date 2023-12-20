@@ -32,11 +32,11 @@ fi # fi means reverse of if, indicating condition end
 
 dnf install nginx -y
 
-VALIDATE $? "installing ngnix"
+VALIDATE $? "installing nginx"
 
 systemctl enable nginx
 
-VALIDATE $? "enable ngnix"
+VALIDATE $? "enable nginx"
 
 systemctl start nginx
 
@@ -52,7 +52,7 @@ VALIDATE $? "downloaded web app"
 
 cd /usr/share/nginx/html
 
-VALIDATE $? "moving ngnix directory"
+VALIDATE $? "moving nginx directory"
 
 unzip -o /tmp/web.zip
 
