@@ -40,7 +40,7 @@ VALIDATE $? "enable ngnix"
 
 systemctl start nginx
 
-VALIDATE $? "starting ngnix"
+VALIDATE $? "starting nginx"
 
 rm -rf /usr/share/nginx/html/*
 
@@ -64,4 +64,4 @@ VALIDATE $? "copied reverse proxy conf"
 
 systemctl restart nginx 
 
-VALIDATE $? "restarted ngnix"
+VALIDATE $? "restarted nginx"
